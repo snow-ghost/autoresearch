@@ -13,7 +13,7 @@ import (
 const (
 	DefaultTimeBudget = 5 * time.Minute
 
-	defaultContextLen = 16
+	defaultContextLen = 8
 	defaultEmbedDim   = 24
 	defaultHiddenDim  = 96
 	defaultBatchSize  = 64
