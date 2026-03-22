@@ -15,7 +15,7 @@ const (
 
 	defaultContextLen = 8
 	defaultEmbedDim   = 24
-	defaultHiddenDim  = 96
+	defaultHiddenDim  = 128
 	defaultBatchSize  = 64
 	defaultLearning   = 3e-3
 	defaultBeta1      = 0.9
