@@ -70,3 +70,42 @@ cmd/train/main.go   train command
 - The default corpus source is Tiny Shakespeare from Karpathy's `char-rnn` repository.
 - Peak memory is reported as Go heap usage (`peak_heap_mb`), not VRAM.
 - This is intentionally a compact experimentation scaffold, not a production training system.
+
+## Using Autonomous Agents
+
+This repository is designed to work well with terminal-based coding agents such as Codex, Claude Code, and OpenCode.
+
+Recommended setup:
+
+- start the agent in the repository root;
+- let it read `program.md`, `README.md`, `prepare.go`, and `train.go`;
+- run it on a dedicated branch such as `autoresearch/<tag>`;
+- let it modify only `train.go`;
+- let it log experiment outcomes in `results.tsv`;
+- keep the session running in `tmux` or `screen` if you want long unattended runs.
+
+Typical workflow:
+
+1. Prepare the cache once:
+
+   ```bash
+   go run ./cmd/prepare
+   ```
+
+2. Start your agent in this repository.
+3. Give it a prompt that tells it to read `program.md` and continue autonomously.
+4. Let it repeat this loop:
+   - edit `train.go`;
+   - commit the change;
+   - run `go run ./cmd/train > run.log 2>&1`;
+   - extract `val_bpb` and `peak_heap_mb` from `run.log`;
+   - append the result to `results.tsv`;
+   - keep the commit only if `val_bpb` improved.
+
+Prompt templates are included in:
+
+- `prompts/codex.md`
+- `prompts/claude-code.md`
+- `prompts/opencode.md`
+
+All prompt files are written in English and can be copy-pasted directly into the corresponding agent.
