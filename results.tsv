@@ -1,0 +1,15 @@
+commit	val_bpb	peak_heap_mb	status	description
+d401e85	2.686152	7.2	keep	baseline
+d4a8a86	2.693914	9.8	discard	increase model width
+a7304fc	2.711046	3.7	discard	reuse training scratch buffers
+f74bb63	2.715229	7.2	discard	increase learning rate
+a076aac	2.710040	7.6	discard	add last-token shortcut
+ec260b3	2.616058	5.7	keep	reduce context length
+566212d	2.582512	6.8	keep	increase hidden size on shorter context
+bf40375	2.582833	7.8	discard	increase embedding size
+0506b70	2.599923	6.8	discard	remove weight decay
+14792ca	2.616053	6.8	discard	lower Adam beta2
+189967e	2.612171	6.8	discard	switch hidden activation to ReLU
+dc2d1a6	2.611425	6.8	discard	reduce batch size
+1e4ff7d	2.579160	6.8	keep	increase batch size
+d37e2a6	2.574452	6.8	keep	increase batch size further
